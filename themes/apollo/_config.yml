@@ -14,8 +14,8 @@ disqus:
 duoshuo:
 
 # Analytics
-# google-analytics:
-# ga: UA-xxxxxxxx-x
+google-analytics:
+ga: UA-134861474-2
 
 # Copyright Infomation
 startyear: 2015
