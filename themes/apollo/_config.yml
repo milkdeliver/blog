@@ -1,7 +1,7 @@
 menu:
     Blog: /
     Archive: /archives/
-    # Weibo: http://weibo.com/sunchongsheng
+    Me: /me/
     GitHub: https://github.com/milkdeliver
     Rss: /atom.xml
 
