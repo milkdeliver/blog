@@ -10,8 +10,31 @@ logo: /favicon.png
 
 # Comment
 # e.g disqus: seansun
-disqus:
-duoshuo:
+# disqus: seansun
+# duoshuo: 
+# valine: 
+#   enable: true
+#   appId: cQ13Xf23drRL1QT3vRom4f3C-gzGzoHsz
+#   appKey: w3b0HvfDDdp5J4t7ikgOzKtN
+#   notify: false 
+#   verify: false 
+#   placeholder: 请不吝赐教 
+#   avatar: "mm" 
+#   pageSize: 10
+#   guest_info: nick,mail,link 
+
+valine:
+  enable: true
+  appId: cQ13Xf23drRL1QT3vRom4f3C-gzGzoHsz
+  appKey: w3b0HvfDDdp5J4t7ikgOzKtN
+  notify: false
+  verify: false
+  visitor: true
+  avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  pageSize: 10
+  placeholder: '请评论' # Comment Box placeholder
+  background: /medias/comment_bg.png
+
 
 # Analytics
 google-analytics:

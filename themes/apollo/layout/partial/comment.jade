@@ -11,6 +11,27 @@ if theme.duoshuo
              || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
 
+if theme.valine.enable
+    #vcomment
+    script(src='//unpkg.com/valine/dist/Valine.min.js')
+    script.
+      var GUEST_INFO = ['nick','mail'];
+      var guest_info = '#{ theme.valine.guest_info }'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+      });
+      guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+      //- console.log(theme.valine);
+      new Valine({
+        el:'#vcomment',
+        notify: #{ theme.valine.notify },
+        verify: #{ theme.valine.verify },
+        appId:'#{theme.valine.appId}',
+        appKey:'#{theme.valine.appKey}',
+        placeholder:'#{theme.valine.placeholder}',
+        avatar:'#{theme.valine.avatar}',
+        guest_info:guest_info,
+        pageSize:'#{theme.valine.pageSize}'
+      })
 
 if theme.disqus
     #disqus_thread
@@ -25,3 +46,9 @@ if theme.disqus
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
+
+
+
+
+
+   

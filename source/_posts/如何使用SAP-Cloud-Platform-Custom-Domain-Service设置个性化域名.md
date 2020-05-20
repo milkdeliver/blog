@@ -1,7 +1,8 @@
 ---
 title: 如何使用SAP Cloud Platform Custom Domain Service设置个性化域名
 date: 2020-05-18 16:23:09
-tags: SAP Cloud Platform; Custom Domain
+updated: 2020-05-19 11:10:09
+tags: [SAP Cloud Platform, Custom Domain]
 ---
 <!-- TOC -->
 
@@ -12,6 +13,7 @@ tags: SAP Cloud Platform; Custom Domain
   - [去证书机构请求CSR获取签名](#去证书机构请求csr获取签名)
   - [导入并激活证书](#导入并激活证书)
   - [使用自己域名发布应用](#使用自己域名发布应用)
+  - [分享域名给你的其余Org使用](#分享域名给你的其余org使用)
 - [参考资料](#参考资料)
 - [感谢](#感谢)
 
@@ -87,7 +89,7 @@ cf custom-domain-get-csr cpgc-cn40-key csr.pem
 ### 去证书机构请求CSR获取签名
 拿着上面获得CSR发送给CA证书办法机构去验证，当验证成功之后，CA机构会给你发回的相应的Cert。
 
-我收到有DigiCert发挥的Intermediate Certificates。
+我收到有DigiCert颁发的Intermediate Certificates。
 ![1](https://blog-1252828110.cos.ap-shanghai.myqcloud.com/img/03-custom-domain/cd-11.png)
 
 最后将三个证书合并成一个Pem文件。
@@ -143,6 +145,20 @@ cf apps
 ```
 ![1](https://blog-1252828110.cos.ap-shanghai.myqcloud.com/img/03-custom-domain/cd-12.png)
 
+### 分享域名给你的其余Org使用
+当然当你配好了域名之后，只是在当前的组织里面使用，你也可以将自己的域名分配给其余组织使用，**这个组织必须在你的全局账户之下**。
+```bash
+# 分享域名
+cf share-private-domain "IBSO_cqhh" cpgc.cn40.apps.platform.sapcloud.cn
+
+# 查看分配情况
+cf t -o IBSO_cqhh
+cf domains
+```
+![1](https://blog-1252828110.cos.ap-shanghai.myqcloud.com/img/03-custom-domain/cd-13.png)
+![1](https://blog-1252828110.cos.ap-shanghai.myqcloud.com/img/03-custom-domain/cd-14.png)
+
+
 感谢阅读，打完收工。
 
 
@@ -151,6 +167,8 @@ cf apps
 1. https://help.sap.com/viewer/74af813c7ee2457cb5eddca0cc70a0c1/Cloud/en-US/4414cc43db2d4229b27b232a5590e253.html
 
 2. SAP内部wiki https://wiki.wdf.sap.corp/wiki/pages/viewpage.action?pageId=2098634698
+
+3. Sharing Custom Domains https://help.sap.com/viewer/74af813c7ee2457cb5eddca0cc70a0c1/Cloud/en-US/8ecabca8e9cc449f9de3eb34870ef490.html
 
 ## 感谢
 Bella Wang提供的支持，因为你的支持，我才能尽快完成了custom domain的配置，感恩。
